@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HBD BESTIE! ~ Y2K Cyber Nostalgia</title>
+    <!-- Google Fonts for pixel and early 2000s web vibes -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-pink: #ffc0cb;
+            --hot-pink: #ff69b4;
+            --window-bg: #fff0f5;
+            --border-silver-light: #ffffff;
+            --border-silver-dark: #808080;
+        }
+
+        body {
+            background-color: var(--bg-pink);
+            background-image: radial-gradient(#ff69b4 15%, transparent 16%), radial-gradient(#ff69b4 15%, transparent 16%);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            font-family: 'VT323', monospace;
+            color: #333333;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        /* 90s/Y2K Browser Window Container */
+        .browser-window {
+            width: 100%;
+            max-width: 850px;
+            background: var(--window-bg);
+            border: 3px solid;
+            border-color: var(--border-silver-light) var(--border-silver-dark) var(--border-silver-dark) var(--border-silver-light);
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+            padding: 4px;
+        }
+
+        /* Browser Title Bar */
+        .title-bar {
+            background: linear-gradient(90deg, #000080, #1084d0);
+            color: white;
+            padding: 4px 8px;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .title-bar-controls button {
+            background: #c0c0c0;
+            border: 2px solid;
+            border-color: #fff #000 #000 #fff;
+            width: 16px;
+            height: 16px;
+            font-size: 9px;
+            font-weight: bold;
+            line-height: 8px;
+            cursor: pointer;
+        }
+
+        /* Browser Address Bar */
+        .address-bar {
+            background: #c0c0c0;
+            padding: 4px;
+            border: 2px solid;
+            border-color: var(--border-silver-dark) var(--border-silver-light) var(--border-silver-light) var(--border-silver-dark);
+            display: flex;
+            gap: 5px;
+            align-items: center;
+            margin-top: 2px;
+            margin-bottom: 6px;
+        }
+
+        .address-input {
+            background: white;
+            border: 2px solid;
+            border-color: var(--border-silver-dark) var(--border-silver-light) var(--border-silver-light) var(--border-silver-dark);
+            flex-grow: 1;
+            padding: 2px 6px;
+            font-family: 'VT323', monospace;
+            font-size: 18px;
+        }
+
+        /* Main Content Area */
+        .content-body {
+            background-color: #ffdae9;
+            border: 2px inset #ffffff;
+            padding: 15px;
+        }
+
+        /* Header Banner */
+        .main-header {
+            border: 3px double #ff1493;
+            background: white;
+            padding: 10px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 20px;
+            color: #d12385;
+            text-shadow: 2px 2px #ffb6c1;
+            margin: 0 0 5px 0;
+        }
+
+        .marquee-sub {
+            background: #000080;
+            color: #00ffcc;
+            font-size: 16px;
+            padding: 3px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .retro-box {
+            background: white;
+            border: 2px solid;
+            border-color: var(--border-silver-dark) var(--border-silver-light) var(--border-silver-light) var(--border-silver-dark);
+            padding: 10px;
+            height: 100%;
+        }
+
+        .retro-box h3 {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 9px;
+            background: #ff69b4;
+            color: white;
+            padding: 6px;
+            margin: -10px -10px 10px -10px;
+            text-align: center;
+        }
+
+        /* Cake Monitor Centerpiece */
+        .monitor-frame {
+            background: linear-gradient(135deg, #e0e0e0, #808080);
+            padding: 8px;
+            border: 4px solid;
+            border-color: #fff #404040 #404040 #fff;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+            display: inline-block;
+        }
+
+        .screen {
+            background: #000;
+            border: 2px inset #fff;
+            padding: 4px;
+        }
+
+        .screen img {
+            width: 100%;
+            max-width: 220px;
+            height: auto;
+            display: block;
+            image-rendering: pixelated;
+        }
+
+        /* Polaroid Photo Stack */
+        .mini-polaroid {
+            background: white;
+            padding: 4px 4px 16px 4px;
+            border: 1px solid #999;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+            width: 120px;
+            margin: 0 auto;
+            transform: rotate(-2deg);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .mini-polaroid:hover {
+            transform: scale(1.05) rotate(0deg);
+            z-index: 10;
+        }
+
+        .mini-polaroid img {
+            width: 100%;
+            height: 110px;
+            object-fit: cover;
+        }
+
+        /* Retro Buttons & Counter */
+        .retro-btn {
+            background: #ffb6c1;
+            border: 2px solid;
+            border-color: #fff #666 #666 #fff;
+            padding: 6px 10px;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 7px;
+            cursor: pointer;
+            color: black;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .retro-btn:active {
+            border-color: #666 #fff #fff #666;
+        }
+
+        .visitor-counter {
+            background: black;
+            color: #00ff00;
+            font-family: 'VT323', monospace;
+            font-size: 20px;
+            padding: 2px 6px;
+            letter-spacing: 2px;
+            border: 2px inset #666;
+        }
+
+        /* Floating confetti & Modal styling */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #ff69b4;
+            animation: fall 3s linear infinite;
+            z-index: 9999;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+        }
+        /* Cake container wrapper for floating and positioning flame animations */
+    .cake-container {
+        max-width: 220px;
+        animation: floatCake 3s ease-in-out infinite;
+    }
+
+    @keyframes floatCake {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-4px); }
+    }
+
+    /* Candle Flame Styling & Animation */
+    .flame {
+        position: absolute;
+        width: 6px;
+        height: 12px;
+        background: linear-gradient(to top, #ff4500, #ffd700, #fff);
+        border-radius: 50% 50% 20% 20%;
+        box-shadow: 0 0 8px #ff4500, 0 0 12px #ffd700;
+        animation: flicker 0.6s infinite alternate ease-in-out;
+        z-index: 5;
+    }
+
+    /* Positioning flames over the cake's candle tops */
+    .flame-1 { top: 12%; left: 37%; animation-delay: 0.1s; }
+    .flame-2 { top: 11%; left: 45%; animation-delay: 0.3s; }
+    .flame-3 { top: 10%; left: 51%; animation-delay: 0.2s; }
+    .flame-4 { top: 10%; left: 57%; animation-delay: 0.4s; }
+    .flame-5 { top: 12%; left: 63%; animation-delay: 0.15s; }
+
+    @keyframes flicker {
+        0% { transform: scale(1) rotate(-3deg); opacity: 0.9; }
+        100% { transform: scale(1.15) rotate(3deg); opacity: 1; filter: brightness(1.3); }
+    }
+
+    /* Class added via JS to blow out candles */
+    .candles-out .flame {
+        display: none !important;
+    }
+    </style>
+
+    <!-- Hidden Audio Player for Birthday Mix -->
+<audio id="birthdaySong" loop>
+    <source src="birthday-song.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+</head>
+<body>
+
+    <div class="browser-window">
+        <!-- Browser Top Bar -->
+        <div class="title-bar">
+            <span>90s_browser_v1.0 - [HBD_BESTIE.HTML]</span>
+            <div class="title-bar-controls">
+                <button onclick="minimizeWindow()">_</button>
+                <button onclick="alert('Maximizing browser window!')">□</button>
+                <button onclick="closeWindow()">X</button>
+            </div>
+        </div>
+        <div class="address-bar">
+            <span style="font-size: 14px;">Address:</span>
+            <input class="address-input" type="text" value="http://www.geocities.com/hbd_bestie/2000.html" readonly>
+        </div>
+
+        <!-- Website Content Frame -->
+        <div class="content-body">
+            
+            <!-- Header Banner -->
+            <div class="main-header">
+                <h1>✨ HBD CJ! 🥳 🎂</h1>
+                <div class="marquee-sub" id="marqueeText">
+                    ~*~*~* Y2K BIRTHDAY VIBES *~*~*~ HAPPY 18TH *~*~*~*
+                </div>
+            </div>
+
+            <!-- Bootstrap Grid Layout -->
+            <div class="row g-3 align-items-center mb-3">
+                
+                <!-- Guestbook Box -->
+                <div class="col-md-4">
+                    <div class="retro-box">
+                        <h3>GUESTBOOK</h3>
+                        <div style="font-size: 15px; line-height: 1.2; height: 140px; overflow-y: auto;" id="guestbookEntries">
+                            <p><strong>USER_NAME_MABELLE1:</strong><br>OMG, love the site! HBD!!! 🎉</p>
+                            <hr class="my-1 border-secondary">
+                            <p><strong>CYBER_GIRL_X:</strong><br>HAGS! Have the best day ever!! 💖</p>
+                        </div>
+                        <!-- Add message form element -->
+                        <div class="input-group input-group-sm mt-2">
+                            <input type="text" id="guestInput" class="form-control form-control-sm font-monospace" placeholder="Leave note...">
+                            <button class="btn btn-outline-dark btn-sm font-monospace" style="font-size: 10px;" onclick="addGuestMessage()">Sign</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center Piece: Cake in Monitor -->
+              <div class="col-md-4 text-center">
+                    <div class="monitor-frame">
+                        <div class="screen position-relative overflow-hidden">
+                            <div class="cake-container position-relative mx-auto">
+                                <div class="flame flame-1"></div>
+                                <div class="flame flame-2"></div>
+                                <div class="flame flame-3"></div>
+                                <div class="flame flame-4"></div>
+                                <div class="flame flame-5"></div>
+                                <img src="cake.png" alt="Aesthetic Birthday Cake" id="cakeImage" class="w-100 d-block">
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 15px; margin: 5px 0 0 0; color: #900048;" id="cakeTip">*~ Click the cake to blow out candles! ~*</p>
+                </div>
+
+                <!-- Photo Memz Box -->
+                <!-- PHOTO MEMZ Box -->
+<div class="col-md-4">
+    <div class="retro-box text-center">
+        <h3>PHOTO MEMZ</h3>
+        <div class="d-flex flex-column gap-2">
+            <!-- Memory 1 -->
+            <div class="mini-polaroid" onclick="zoomPhoto(this)">
+                <img src="photo1.jpg" alt="Memory 1">
+            </div>
+            <!-- Memory 2 -->
+            <div class="mini-polaroid" onclick="zoomPhoto(this)" style="transform: rotate(2deg);">
+                <img src="photo2.jpg" alt="Memory 2">
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+
+            <!-- Bottom Interactive Controls -->
+            <div class="d-flex justify-content-between align-items-center bg-white p-2 border border-secondary">
+                <button class="retro-btn" onclick="playBirthdaySong()">
+                    ▶ PLAY MY BIRTHDAY MIX
+                </button>
+                <div class="d-flex align-items-center gap-2">
+                    <span style="font-size: 12px; font-family: 'Press Start 2P';">VISITOR:</span>
+                    <div class="visitor-counter" id="visitorCount">0001998</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Y2K JavaScript Functions -->
+    <script>
+        // 1. Increment visitor counter dynamically on load
+        window.addEventListener('DOMContentLoaded', () => {
+            let count = localStorage.getItem('y2k_visitor_count');
+            if (!count) {
+                count = 1998;
+            } else {
+                count = parseInt(count) + 1;
+            }
+            localStorage.setItem('y2k_visitor_count', count);
+            document.getElementById('visitorCount').innerText = String(count).padStart(7, '0');
+        });
+
+        // 2.// Cake candle blowing interactivity
+    let candlesBlown = false;
+    document.getElementById('cakeImage').addEventListener('click', function() {
+        const container = document.querySelector('.cake-container');
+        const tip = document.getElementById('cakeTip');
+        
+        if (!candlesBlown) {
+            container.classList.add('candles-out');
+            tip.innerText = "💨 WISH GRANTED! Candles blown out! ✨";
+            candlesBlown = true;
+            if (typeof triggerConfetti === 'function') triggerConfetti();
+        } else {
+            container.classList.remove('candles-out');
+            tip.innerText = "*~ Click the cake to blow out candles! ~*";
+            candlesBlown = false;
+        }
+    });
+
+        // 3. Add Guestbook Message Dynamically
+        function addGuestMessage() {
+            const input = document.getElementById('guestInput');
+            const text = input.value.trim();
+            if (text) {
+                const guestbook = document.getElementById('guestbookEntries');
+                const newEntry = document.createElement('div');
+                newEntry.innerHTML = `<hr class="my-1 border-secondary"><p><strong>BESTIE_FAN:</strong><br>${escapeHtml(text)}</p>`;
+                guestbook.appendChild(newEntry);
+                guestbook.scrollTop = guestbook.scrollHeight;
+                input.value = '';
+            }
+        }
+
+        // 4. Play button simulation
+       function playBirthdaySong() {
+        const song = document.getElementById('birthdaySong');
+        
+        if (song.paused) {
+            song.play();
+            alert("🎵 Now playing: Your custom birthday mix!");
+            triggerConfetti();
+        } else {
+            song.pause();
+            alert("⏸️ Music paused.");
+        }
+    }
+        // 5. Window controls behavior
+        function minimizeWindow() {
+            document.querySelector('.content-body').style.display = document.querySelector('.content-body').style.display === 'none' ? 'block' : 'none';
+        }
+
+        function closeWindow() {
+            if(confirm("Are you sure you want to close the cyber time capsule?")) {
+                document.body.innerHTML = "<div style='color:white; text-align:center; font-family: \"Press Start 2P\"; margin-top: 20vh;'><h1>SYSTEM SHUTDOWN</h1><p>Thanks for visiting! Refresh to reopen.</p></div>";
+            }
+        }
+
+        // Helper function for confetti animation effect
+        function triggerConfetti() {
+            for (let i = 0; i < 40; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = Math.random() * window.innerWidth + 'px';
+                confetti.style.backgroundColor = ['#ff69b4', '#00ffcc', '#ffff00', '#ffffff', '#ff1493'][Math.floor(Math.random() * 5)];
+                confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 4000);
+            }
+        }
+
+        // Simple security helper
+        function escapeHtml(str) {
+            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        }
+    </script>
+</body>
+</html>
